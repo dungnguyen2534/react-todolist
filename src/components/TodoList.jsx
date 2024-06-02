@@ -34,7 +34,7 @@ export default function TodoList() {
     <>
       {noIncompletedTodos ? null : (
         <div className="list">
-          <h2>Incompleted</h2>
+          <h2>Incomplete</h2>
           <ul>{filteredLists.incompletedList}</ul>
         </div>
       )}
