@@ -72,10 +72,6 @@ input[type="text"]:focus {
   outline: 2.5px solid #52cffe;
 }
 
-#filter-input:focus {
-  outline: 2.5px solid #aa8fd8;
-}
-
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
@@ -88,11 +84,11 @@ input[type="checkbox"] {
   outline: none;
   display: inline-block;
   vertical-align: middle;
-  transition: background-color 0.1s ease;
+  transition: all 0.1s ease;
 }
 
 input[type="checkbox"]:hover {
-  background-color: rgba(67, 67, 254, 0.4);
+  transform: scale(1.07);
 }
 
 input[type="checkbox"]:checked {
@@ -156,11 +152,16 @@ input[type="checkbox"]:checked:before {
   gap: 0.5rem;
 }
 
+.list-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+}
+
 .list-item-label {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .list-item-label > * {
@@ -170,10 +171,15 @@ input[type="checkbox"]:checked:before {
 .filter-form label span,
 .filter-form input[type="checkbox"] {
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .filter-form-group label {
   font-size: 1.6rem;
+}
+
+.filter-form label span {
+  margin-top: 0.3rem;
 }
 
 .filter-form-group input {
@@ -192,14 +198,14 @@ input[type="checkbox"]:checked:before {
   margin: 1rem 0;
 }
 
-.list-item {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
 [data-list-item-text] {
   padding-left: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 20rem;
 }
 
 .list-item form {
