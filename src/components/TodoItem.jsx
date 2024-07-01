@@ -1,7 +1,7 @@
 import { useContext, useRef, useState } from "react";
-import { TodoContext } from "../App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { TodoContext } from "../context/TodoContext";
 import {
   faFloppyDisk,
   faPenToSquare,

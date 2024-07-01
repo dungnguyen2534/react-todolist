@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { TodoContext } from "../App";
+import { TodoContext } from "../context/TodoContext";
 
 export default function NewTodoForm() {
   const { addNewTodo } = useContext(TodoContext);

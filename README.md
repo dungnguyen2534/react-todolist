@@ -1,1 +1,1 @@
-Simple todolist react app with useReducer
+Simple todolist react app with useReducer and Context API

@@ -1,47 +1,43 @@
-import { useContext, useMemo } from "react";
-import { TodoContext } from "../App";
+import { useContext } from "react";
 import TodoItem from "./TodoItem";
+import { TodoContext } from "../context/TodoContext";
 
 export default function TodoList() {
   const { state } = useContext(TodoContext);
 
-  const filteredLists = useMemo(() => {
-    const filterInputLower = state.filterInput.toLowerCase();
+  const completedList = [];
+  const incompleteList = [];
 
-    const completedList = state.todos
-      .filter(
-        (todo) =>
-          todo.completed &&
-          todo.name.toLowerCase().includes(filterInputLower)
-      )
-      .map((todo) => <TodoItem key={todo.id} {...todo} />);
+  state.todos.forEach((todo) => {
+    if (todo.name.toLowerCase().includes(state.filterInput.toLowerCase()))
+      todo.completed
+        ? completedList.push(todo)
+        : incompleteList.push(todo);
+  });
 
-    const incompletedList = state.todos
-      .filter(
-        (todo) =>
-          !todo.completed &&
-          todo.name.toLowerCase().includes(filterInputLower)
-      )
-      .map((todo) => <TodoItem key={todo.id} {...todo} />);
-
-    return { completedList, incompletedList };
-  }, [state.todos, state.filterInput]);
-
-  const noCompletedTodos = filteredLists.completedList.length === 0;
-  const noIncompletedTodos = filteredLists.incompletedList.length === 0;
+  const noCompletedTodos = completedList.length === 0;
+  const noIncompleteTodos = incompleteList.length === 0;
 
   return (
     <>
-      {noIncompletedTodos ? null : (
+      {noIncompleteTodos ? null : (
         <div className="list">
           <h2>Incomplete</h2>
-          <ul>{filteredLists.incompletedList}</ul>
+          <ul>
+            {incompleteList.map((todo) => (
+              <TodoItem key={todo.id} {...todo} />
+            ))}
+          </ul>
         </div>
       )}
       {state.hideCompleted ? null : noCompletedTodos ? null : (
         <div className="list">
           <h2>Completed</h2>
-          <ul>{filteredLists.completedList}</ul>
+          <ul>
+            {completedList.map((todo) => (
+              <TodoItem key={todo.id} {...todo} />
+            ))}
+          </ul>
         </div>
       )}
     </>

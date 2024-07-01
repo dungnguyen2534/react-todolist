@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TodoContext } from "../App";
+import { TodoContext } from "../context/TodoContext";
 
 export default function FilterForm() {
   const { state, handleInputChange } = useContext(TodoContext);
