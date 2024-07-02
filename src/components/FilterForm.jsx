@@ -15,6 +15,7 @@ export default function FilterForm() {
           value={state.filterInput}
           onChange={handleInputChange}
           placeholder="Search your tasks"
+          autoComplete="off"
         />
       </div>
       <label>

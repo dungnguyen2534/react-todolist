@@ -22,6 +22,7 @@ export default function NewTodoForm() {
         name="todoInput"
         ref={nameRef}
         placeholder="Enter new task"
+        autoComplete="off"
       />
       <button>Add Todo</button>
     </form>
