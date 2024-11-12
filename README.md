@@ -1,2 +1,1 @@
-Simple todolist react app with useReducer and Context API
-- Simply `npm i` and then `npm run dev` to start it
+A React to-do list app using the useReducer hook and the Context API.
